@@ -7,6 +7,6 @@ Change Log: `like-dislike`
 
 Initial release.
 
-1. Added the callbacks functions: `click` and `beforeClick`.
+1. Added the callback functions: `click` and `beforeClick`.
 2. Added ability to cancel a call the callback function `click`.
 3. Added the method `readOnly` to lock and unlock buttons.
