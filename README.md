@@ -16,7 +16,7 @@ Or press "Download ZIP" button on the main GitHub page to get all the files and 
 
 ## Preparation
 
-Add JQuery and like-dislike into your document:
+Add the JQuery and like-dislike into your document:
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -38,15 +38,6 @@ Add JQuery and like-dislike into your document:
   $('#rating').likeDislike({
     reverseMode: true,
     activeBtn: localStorage['key']? localStorage['key'] : '',
-    beforeClick: function(event){
-      var isAuthorized = true;
-      if(!isAuthorized){
-        alert('You are not authorized!');
-        // cancel click processing
-        return false;
-      }
-      return true;
-    },
     click: function(likes, dislikes, activeBtn, event) {
       var self = this;
       // lock the buttons
