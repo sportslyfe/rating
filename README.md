@@ -1,6 +1,6 @@
 # like-dislike
 
-A simple JQuery plugin that allow you to create a rating bar with two buttons: Like and Dislike.
+A simple JQuery plugin that will allow you to create a rating bar with two buttons: Like and Dislike.
 
 - [Demos](http://uagrace.github.io/like-dislike)
 
@@ -37,13 +37,14 @@ Add the JQuery and like-dislike into your document:
 <script type="text/javascript">
   $('#rating').likeDislike({
     reverseMode: true,
-    activeBtn: localStorage['key']? localStorage['key'] : '',
+    activeBtn: 'like',
     click: function(likes, dislikes, activeBtn, event) {
       var self = this;
+      
       // lock the buttons
       self.readOnly(true);
-      // send data to the server
-      $.ajax({
+      
+      $.ajax({  // sending data to the server
         url: '/url',
         type: 'GET',
         data: 'id=1' + '&likes=' + likes + '&dislikes=' + dislikes,
@@ -51,7 +52,7 @@ Add the JQuery and like-dislike into your document:
           // show new values
           $(self).find('.likes').text(data.likes);
           $(self).find('.dislikes').text(data.dislikes);
-          localStorage['key'] = activeBtn;
+          
           // unlock the buttons
           self.readOnly(false);
         }
@@ -72,7 +73,7 @@ click: null, // function(likes, dislikes, activeBtn, event) {}
 // this callback function executed before 'click'
 beforeClick: null, // function(event) {}
 
-// active button ('like' or 'dislike')
+// active button ('like', 'dislike' or '')
 activeBtn: '', // string
 
 // init plugin with locked or unlocked buttons
